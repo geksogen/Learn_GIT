@@ -1,0 +1,156 @@
+---
+openapi: 3.0.0
+info:
+  title: Service_B
+  description: API спецификация для Service_B
+  version: "1.0.0"
+
+paths:
+  /clients:
+    post:
+      tags:
+      - Клиент
+      summary: Создать нового клиента
+      description: Регистрация нового клиента.
+      security: []
+      operationId: createClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '404':
+          $ref: '#/components/responses/404'
+
+components:
+  schemas:
+    Client:
+      description: Информация о клиенте
+      required:
+      - clientId
+      - name
+      - email
+      - tariff
+      type: object
+      properties:
+        userId:
+          allOf:
+            - $ref: '#/components/parameters/clientId'
+          type: integer
+        name:
+          maxLength: 150
+          minLength: 2
+          type: string
+          description: Имя клиента
+          nullable: false
+        email:
+          maxLength: 500
+          minLength: 2
+          type: string
+          description: email пользователя
+          nullable: false
+          example: example@email.com
+        tariff:
+          type: object
+          description: Выбранный клентом тариф
+          required:
+            - name
+            - isIndividual
+            - comission
+            - discount
+          properties:
+            name:
+              maxLength: 150
+              minLength: 2
+              type: string
+              description: Название тарифа
+              nullable: false
+            isIndividual:
+              type: boolean
+              description: Индивидуальный тариф
+            comission:
+              maximum: 100
+              minimum: 0
+              type: integer
+              description: Комиссия тарифа
+            discount:
+              maximum: 100
+              minimum: 0
+              type: integer
+              description: Скидка
+        phoneNumber:
+          maxLength: 2000
+          minLength: 50
+          type: string
+          description: Телефон клиента
+          example: +7 999 888 45 66
+  responses:
+    '200':
+      description: OK
+    auth200:
+      description: Аутентификация выполнена успешно
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+                example: 9038-20450-9340-98
+            required:
+              - token
+    '404':
+      description: Что-то пошло не так...
+      content:
+        application/json:
+          schema:
+            required:
+            - code
+            - errorId
+            - messageEn
+            - messageRu
+            type: object
+            properties:
+              errorId:
+                type: integer
+              code:
+                maximum: 599
+                minimum: 400
+                type: integer
+              messageRu:
+                maxLength: 500
+                minLength: 1
+                pattern: "([А-Яа-я0-9-]+)"
+                type: string
+                nullable: false
+              messageEn:
+                maxLength: 500
+                minLength: 1
+                pattern: "([A-Za-z0-9-]+)"
+                type: string
+                nullable: false
+            description: Текст сообщения об ошибке
+    '401':
+      description: Неправильный логин или пароль
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+  parameters:
+    clientId:
+      name: clientId
+      in: path
+      description: Уникальный ID клиента
+      required: true
+      style: simple
+      explode: false
+      # example: 15
+      schema:
+        type: integer
