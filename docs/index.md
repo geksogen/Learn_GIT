@@ -1,6 +1,7 @@
 # Общая информация о проекте
 
 ## Разделы
-* BRQ
+* Architecture Diagram
+* Sequence Diagram
 * Swagger API Service_A
 * Swagger API Service_B
