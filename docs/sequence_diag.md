@@ -9,8 +9,6 @@ sequenceDiagram
   end
   Note right of John: Rational thoughts!
   John-->>Alice: Great!
-  John->>Bob: How about you?
-  Bob-->>John: Jolly good!
 ```
 
 ![alt text](https://raw.githubusercontent.com/geksogen/TZ_SA_/master/BRD/diagrams/BPM_client.svg)
