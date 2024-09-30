@@ -1,6 +1,6 @@
 site_name: My test CI\CD for Documentations
 theme:
-  name: mkdocs
+  name: material
   features:
     - navigation.tabs
     - navigation.sections
