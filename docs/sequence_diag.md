@@ -3,7 +3,7 @@
 ``` mermaid
 sequenceDiagram
   autonumber
-  Bobb->>John: Hello John, how are you?
+  Bobb->>Andry: Hello Andry, how are you?
   loop Healthcheck
       John->>John: Fight against hypochondria
   end
