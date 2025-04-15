@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: 3.x
       - uses: actions/cache@v2
@@ -24,4 +24,5 @@ jobs:
       - run: pip install pillow cairosvg
       - run: pip install beautifulsoup4>=4.11.1
       - run: pip install mkdocs-swagger-ui-tag      # Render Swagger
+      - run: mkdocs gh-deploy --force
       - run: mkdocs gh-deploy --force
