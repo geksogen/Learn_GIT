@@ -51,18 +51,3 @@ markdown_extensions:
 plugins:
    - swagger-ui-tag
    - mermaid2
-   - build_plantuml:
-      render: "server"
-      bin_path: "/usr/local/bin/plantuml"
-      server: "http://www.plantuml.com/plantuml"
-      output_format: "svg"
-      diagram_root: "docs/diagrams"
-      output_folder: "out"
-      input_folder: "src"
-      theme_enabled: true
-      theme_folder: "include/themes"
-      theme_light: "light.puml"
-      theme_dark: "dark.puml"
-  - exclude:
-      glob:
-        - diagrams/include/C4/*
