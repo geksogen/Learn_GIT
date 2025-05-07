@@ -47,8 +47,8 @@ C4Context
 
 ## Sequence Diagram
 
-```plantuml
-@startuml
+``` mermaid
+sequenceDiagram
 autonumber
     actor Actor as User
     participant MobileApp
@@ -73,7 +73,6 @@ autonumber
         Note right of MobileApp: Таймер истек
         MobileApp->>User: Отображение ошибки "Команда не выполнена"
     end
-@enduml
 ```
 
 ## Пример реализации концепта на Python
