@@ -1,4 +1,4 @@
-# Документация по взаимодействию мобильного приложения с IoT лампочкой через MQTT
+# MQTT_IoT
 
 ## Архитектура
 Архитектура системы включает следующие компоненты:
@@ -7,8 +7,8 @@
 2. **IoT-лампочка**: Получает команды и публикует текущее состояние.
 3. **MQTT-брокер**: Управляет обменом сообщениями между мобильным приложением и IoT-лампочкой.
 
-```plantuml
-@startuml
+``` mermaid
+C4Context
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
