@@ -49,13 +49,12 @@ C4Context
 
 ``` mermaid
 sequenceDiagram
-autonumber
     actor Actor as User
     participant MobileApp
-    box "Topics UDS mode" #LightBlue
-    queue Topic_Command as CommandTopic #99FF99
-    queue Topic_State as StateTopic #99FF99
-    end box
+    box Topics_IoT
+    queue Topic_Command as CommandTopic
+    queue Topic_State as StateTopic
+    end
     participant ECU
 
 
