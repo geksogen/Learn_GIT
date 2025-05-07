@@ -9,26 +9,19 @@
 
 ``` mermaid
 C4Context
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-
-LAYOUT_LANDSCAPE()
-    title Архитектура взаимодействия с IoT-лампочкой через MQTT брокер
+    title Архитектура системы взаимодействия с IoT-лампочкой через MQTT
 
     Person(user, "Пользователь", "Отправляет команды на включение и выключение лампочки.")
 
     System_Boundary(system, "Система управления IoT-лампочкой") {
         Container(mobile_app, "Мобильное приложение", "Python, MQTT", "Отправляет команды и получает состояние лампочки.")
         Container(mqtt_broker, "MQTT-брокер", "MQTT", "Управляет обменом сообщениями.")
-        Container(ecu, "IoT-лампочка (ECU)", "Python, MQTT", "Получает команды и публикует состояние.")
+        Container(IoT, "IoT-лампочка", "Python, MQTT", "Получает команды и публикует состояние.")
     }
 
     Rel(user, mobile_app, "Отправляет команды")
     Rel(mobile_app, mqtt_broker, "Публикует команды и подписывается на состояние")
-    Rel(ecu, mqtt_broker, "Получает команды и публикует состояние")
-@enduml
-
+    Rel(IoT, mqtt_broker, "Получает команды и публикует состояние")
 ```
 
 ## Функциональные требования
