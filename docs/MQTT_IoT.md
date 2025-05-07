@@ -41,32 +41,29 @@ C4Context
    - Если в течение заданного времени не поступает обновление состояния, выводится сообщение об ошибке.
 
 3. **Получение состояния**:
-   - ECU получает команду из топика `command` и выполняет соответствующее действие.
-   - После выполнения команды ECU публикует свой текущий статус в топик `state`.
+   - IoT получает команду из топика `command` и выполняет соответствующее действие.
+   - После выполнения команды IoT публикует свой текущий статус в топик `state`.
    - Мобильное приложение получает обновление состояния из топика `state` и обновляет интерфейс пользователя.
 
 ## Sequence Diagram
 
 ``` mermaid
 sequenceDiagram
-    actor Actor as User
+    participant User
     participant MobileApp
-    box Topics_IoT
-    queue Topic_Command as CommandTopic
-    queue Topic_State as StateTopic
-    end
-    participant ECU
-
+    participant IoT
+    participant CommandTopic as Топик "command"
+    participant StateTopic as Топик "state"
 
     User->>MobileApp: Отправить команду (ON/OFF)
     MobileApp->>CommandTopic: Публикация команды
     Note right of MobileApp: Запуск таймера
 
     alt Команда выполнена
-        CommandTopic-->>ECU: Получение команды
-        ECU->>StateTopic: Публикация состояния (ON)
+        CommandTopic-->>IoT: Получение команды
+        IoT->>StateTopic: Публикация состояния (ON)
         StateTopic-->>MobileApp: Получение состояния (ON)
-        MobileApp->>User: Обновление интерфейса (UDS: ON)
+        MobileApp->>User: Обновление интерфейса (Лампочка: ON)
         MobileApp->>MobileApp: Сброс таймера
     else Команда не выполнена
         Note right of MobileApp: Таймер истек
