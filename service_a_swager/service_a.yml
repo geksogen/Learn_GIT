@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: Service_A_23_06
+  title: Service_A_06_08
   description: API спецификация для Service_A
   version: "1.0.0"
 
