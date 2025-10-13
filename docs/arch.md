@@ -2,7 +2,7 @@
 ``` mermaid
     C4Context
       title System Context diagram for Internet Banking System
-      Enterprise_Boundary(b0, "BankBoundary0") {
+      Enterprise_Boundary(b0, "BankBoundary99") {
         Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
         Person(customerB, "Banking Customer B")
         Person_Ext(customerC, "Banking Customer C", "desc")
