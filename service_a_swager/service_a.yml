@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: Service_A_13_10
+  title: Service_A_13_12
   description: API спецификация для Service_A
   version: "1.1.0"
 
