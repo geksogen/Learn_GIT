@@ -2,7 +2,5 @@
 
 * BRQ
 * Architecture
-* Sequence Diagram
-* Service A API
-* Service B API
-* test
+* UC
+* SRS
