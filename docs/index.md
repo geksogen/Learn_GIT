@@ -1,7 +1,6 @@
 ## Welcome
 
-* BRQ
-* Architecture
-* UC
-* SRS
-* test
+* MQTT_IoT
+* Sequence Diagram
+* Swagwr-Service-A
+* Swager-Service-B
