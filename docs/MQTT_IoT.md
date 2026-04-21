@@ -7,7 +7,7 @@
 2. **IoT-лампочка**: Получает команды и публикует текущее состояние.
 3. **MQTT-брокер**: Управляет обменом сообщениями между мобильным приложением и IoT-лампочкой.
 
-<pre><code>```puml
+```puml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
