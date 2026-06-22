@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href=".." rel="prev"/>
+<link href="../service_a_api/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>MQTT_IoT - My test CI\CD for Documentations</title>
+<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../assets/mkdocs_puml/puml.css" rel="stylesheet"/>
+<link href="../assets/mkdocs_puml/interaction.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="purple" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#mqtt_iot">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="My test CI\CD for Documentations" class="md-header__button md-logo" data-md-component="logo" href=".." title="My test CI\CD for Documentations">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            My test CI\CD for Documentations
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              MQTT_IoT
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="purple" data-md-color-media="" data-md-color-primary="teal" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="lime" data-md-color-media="" data-md-color-primary="teal" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
+        
+  
+  
+    
+  
+  MQTT_IoT
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../service_a_api/">
+        
+  
+  
+    
+  
+  Service A
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../service_b_api/">
+        
+  
+  
+    
+  
+  Service B
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="My test CI\CD for Documentations" class="md-nav__button md-logo" data-md-component="logo" href=".." title="My test CI\CD for Documentations">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    My test CI\CD for Documentations
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    MQTT_IoT
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    MQTT_IoT
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        Архитектура
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        Функциональные требования
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        Логика работы
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sequence-diagram">
+<span class="md-ellipsis">
+      
+        Sequence Diagram
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python">
+<span class="md-ellipsis">
+      
+        Пример реализации концепта на Python
+      
+    </span>
+</a>
+<nav aria-label="Пример реализации концепта на Python" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        Мобильное приложение
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python_1">
+<span class="md-ellipsis">
+      
+        Пример реализации концепта на Python
+      
+    </span>
+</a>
+<nav aria-label="Пример реализации концепта на Python" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#iot">
+<span class="md-ellipsis">
+      
+        IoT лампочка
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mqtt-rest-api-iot-">
+<span class="md-ellipsis">
+      
+        Преимущества MQTT перед REST API для взаимодействия с IoT-устройствами
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../service_a_api/">
+<span class="md-ellipsis">
+    
+  
+    Service A
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../service_b_api/">
+<span class="md-ellipsis">
+    
+  
+    Service B
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="mqtt_iot">MQTT_IoT</h1>
+<h2 id="_1">Архитектура</h2>
+<p>Архитектура системы включает следующие компоненты:</p>
+<ol>
+<li><strong>Мобильное приложение</strong>: Отправляет команды на включение и выключение лампочки и получает текущее состояние лампочки.</li>
+<li><strong>IoT-лампочка</strong>: Получает команды и публикует текущее состояние.</li>
+<li><strong>MQTT-брокер</strong>: Управляет обменом сообщениями между мобильным приложением и IoT-лампочкой.</li>
+</ol>
+<div class="puml-container"><div class="puml light" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="DESCRIPTION" style="width:1069px;height:463px;background:#FFFFFF;" width="1069px" height="463px" viewBox="0 0 1069 463" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.7beta3?><defs/><g><g class="title" data-source-line="7"><text x="260.1886" y="22.9951" fill="#000000" font-size="14" lengthAdjust="spacing" textLength="542.3428" font-weight="700" font-family="sans-serif">Архитектура взаимодействия с IoT-лампочкой через MQTT брокер</text></g><g class="cluster" data-qualified-name="system" id="ent0002" data-source-line="1690"><rect x="427.43" y="44.2969" width="628.29" height="405" fill="none" style="stroke:#444444;stroke-width:1;stroke-dasharray:7,7;"/><text x="430.43" y="93.7422" fill="#444444" font-size="16" lengthAdjust="spacing" textLength="332.7344" font-weight="700" font-family="sans-serif">Система управления IoT-лампочкой</text><text x="430.43" y="108.6543" fill="#444444" font-size="12" lengthAdjust="spacing" textLength="59.4551" font-weight="700" font-family="sans-serif">[system]</text></g><g class="entity" data-qualified-name="system.mobile_app" id="ent0003" data-source-line="76"><rect x="447.64" y="280.9469" width="192.2314" height="152.7031" fill="#438DD5" style="stroke:#3C7FC0;stroke-width:0.5;"/><text x="502.0223" y="303.942" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="83.4668" font-style="italic" font-family="sans-serif">«container»</text><text x="491.7401" y="322.0953" fill="#FFFFFF" font-size="16" lengthAdjust="spacing" textLength="104.0313" font-weight="700" font-family="sans-serif">Мобильное</text><text x="485.5956" y="340.7203" fill="#FFFFFF" font-size="16" lengthAdjust="spacing" textLength="116.3203" font-weight="700" font-family="sans-serif">приложение</text><text x="497.2323" y="355.6324" fill="#FFFFFF" font-size="12" lengthAdjust="spacing" textLength="50.0918" font-style="italic" font-family="sans-serif">[Python,</text><text x="547.3241" y="355.6324" fill="#FFFFFF" font-size="12" lengthAdjust="spacing" textLength="3.8145" font-style="italic" font-family="sans-serif"> </text><text x="551.1385" y="355.6324" fill="#FFFFFF" font-size="12" lengthAdjust="spacing" textLength="39.1406" font-style="italic" font-family="sans-serif">MQTT]</text><text x="541.5306" y="371.4576" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="457.64" y="387.7545" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="88.1836" font-family="sans-serif">Отправляет</text><text x="545.8236" y="387.7545" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="550.2738" y="387.7545" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="66.0488" font-family="sans-serif">команды</text><text x="616.3226" y="387.7545" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="620.7728" y="387.7545" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="9.0986" font-family="sans-serif">и</text><text x="469.2611" y="404.0514" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="68.5713" font-family="sans-serif">получает</text><text x="537.8324" y="404.0514" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="542.2826" y="404.0514" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="75.9678" font-family="sans-serif">состояние</text><text x="505.7137" y="420.3482" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="76.084" font-family="sans-serif">лампочки.</text></g><g class="entity" data-qualified-name="system.mqtt_broker" id="ent0004" data-source-line="76"><rect x="873.07" y="234.4069" width="166.6445" height="117.7813" fill="#438DD5" style="stroke:#3C7FC0;stroke-width:0.5;"/><text x="914.6589" y="257.402" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="83.4668" font-style="italic" font-family="sans-serif">«container»</text><text x="894.0055" y="275.5553" fill="#FFFFFF" font-size="16" lengthAdjust="spacing" textLength="124.7734" font-weight="700" font-family="sans-serif">MQTT-брокер</text><text x="934.4811" y="290.4674" fill="#FFFFFF" font-size="12" lengthAdjust="spacing" textLength="43.8223" font-style="italic" font-family="sans-serif">[MQTT]</text><text x="954.1672" y="306.2926" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="883.07" y="322.5895" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="77.54" font-family="sans-serif">Управляет</text><text x="960.61" y="322.5895" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="965.0602" y="322.5895" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="64.6543" font-family="sans-serif">обменом</text><text x="903.3693" y="338.8864" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="106.0459" font-family="sans-serif">сообщениями.</text></g><g class="entity" data-qualified-name="system.ecu" id="ent0005" data-source-line="76"><rect x="443.43" y="128.4069" width="200.6406" height="117.7813" fill="#438DD5" style="stroke:#3C7FC0;stroke-width:0.5;"/><text x="502.0169" y="151.402" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="83.4668" font-style="italic" font-family="sans-serif">«container»</text><text x="453.43" y="169.5553" fill="#FFFFFF" font-size="16" lengthAdjust="spacing" textLength="124.7813" font-weight="700" font-family="sans-serif">IoT-лампочка</text><text x="578.2113" y="169.5553" fill="#FFFFFF" font-size="16" lengthAdjust="spacing" textLength="5.5703" font-weight="700" font-family="sans-serif"> </text><text x="583.7816" y="169.5553" fill="#FFFFFF" font-size="16" lengthAdjust="spacing" textLength="50.2891" font-weight="700" font-family="sans-serif">(ECU)</text><text x="497.2269" y="184.4674" fill="#FFFFFF" font-size="12" lengthAdjust="spacing" textLength="50.0918" font-style="italic" font-family="sans-serif">[Python,</text><text x="547.3187" y="184.4674" fill="#FFFFFF" font-size="12" lengthAdjust="spacing" textLength="3.8145" font-style="italic" font-family="sans-serif"> </text><text x="551.1331" y="184.4674" fill="#FFFFFF" font-size="12" lengthAdjust="spacing" textLength="39.1406" font-style="italic" font-family="sans-serif">MQTT]</text><text x="541.5252" y="200.2926" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="466.7537" y="216.5895" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="69.9453" font-family="sans-serif">Получает</text><text x="536.699" y="216.5895" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="541.1492" y="216.5895" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="66.0488" font-family="sans-serif">команды</text><text x="607.1981" y="216.5895" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="611.6483" y="216.5895" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="9.0986" font-family="sans-serif">и</text><text x="462.5018" y="232.8864" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="77.6289" font-family="sans-serif">публикует</text><text x="540.1307" y="232.8864" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="544.5809" y="232.8864" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="80.418" font-family="sans-serif">состояние.</text></g><g class="entity" data-qualified-name="user" id="ent0001" data-source-line="382"><rect x="7" y="271.3969" width="211.4336" height="171.8017" fill="#08427B" style="stroke:#073B6F;stroke-width:0.5;"/><text x="80.1572" y="294.392" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="65.1191" font-style="italic" font-family="sans-serif">«person»</text><image width="52" height="52" x="86.8706" y="297.6938" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAGWElEQVR4Xu2YC0xTVxjHdWabBXQ63eZ0W9S5GeYwM9PNmDgNIKIwJejAFzIVx5xOMep0AkWQN/ISHxVUUEEUQRGhVMrLElEBgSsw3iBwpRRKoRQuD6Fn57iwmHMp3EJDi/Gf/NLmy73n/L/ennO+746bqG8/7k2CFhjr0AKqYM4vnjs2OV0nfCLSiTBuDhGVShCRyfmE3w0BYetzm9Dd5nt8khF7On6fKqAFRsISm6DDHtdS0wT5VZVltU1AJJGBVhkFZFQXaOvoAo0t7aCqvhlkl9SRwXFPHhodvHhtuonzInyckUALDIcpxk5zf/OOcU3ILK6uF0tBb18fGEqStg6Q9U+d7BiHK5i/xccQH3O40ALKgpI5xkkMIirqGzq7X+K+h1QFKQZuV1MEetv9jfGxhwMtoCy7vaK9i2saRb19ctwrY6G/IftiUvo8S+81+PjKQgsow4+2Z/ZkFtYIu3qUfzK4CqsawG6vGI6OkeM0fB5loAUYMn7yavbMywnZQml7J+5t2IpOe5a1aGegxQDzMYYWYALLwOHd73YE2MNdTIqbGomeCyXgyNmEEHw+ZaAFmKCzypFlH8yjpO1duKcRKzwpL36aifMCfE6m0AJM+GC1Eystt4Lq7unF/YxY/OxysGzPuRh8TqbQAkyAWzWroVlG9cmHv7MpUk4JCSzZEaOb0NQ1J1hUVw+Fm1GFiAoh2OF+621C/dACTEB/OVirUUxKHGWVWfAc/Hw0bHQTgmcQ646giBpOqTOUkrLKwFLbs6ObENq2j57nUqo8VJHQrnkxPmv0t214sE6Yv9lnfeWLZnHfCGo4XCU1jWCvb+zoH6z9nI99RLbIVPeUbqYQWXrWfqNf+vSDitP03Eoh3PFwb0orv7we/Ooepbbi9H+sXG94QzOinpfDrxpQd/vXOW767I2e6m0fEKjB2+cXy35cWFPd0dmNex1SBVVCcPwCT6C79ZRmNHj9bHWJPHL7QWH184YW0M3gaYla2sGDvKpnsHWP/2KDh+a04K+z0Nr/sP0FXlrSk7Ji2LB11opaQFNrO2hpo4BESoF6cRsoq2sCj4pqivyjMgSwBbGAR8AUfJyRQAuogllmbutW2YXwDp2JJ05HPyQu3csigu8+IZwv84ktzpHEZ+buxlqGDlr4faqAFhjr0AJMQV2rtqEjC1UNk4z+Q9vQYSJL334Cfq0itAwc3u+/H31qQ2DsPTjGePxaptACTEDJfL3Zm21uf7XxYNA9yiU0mXK/mkpZsCNK4ALfhl+vCAO7YB4qodC9sPWmNjldpxbbBN35cO0JPfxaptACgzHTzE33GIdLPi6qJYXiNqlYSslbYaWA3orKIHDh9xbXNEqi0wrI48E80oIdTq7YxyldvOs0d4lNEN/QLoT8MyCWDOflknBzIJtaOrpQPYjuRZ/NcPMQSdo7CyqFooCoDHKp7Rk+7mEoaIGB+HS9q4G1WxSRXVJXil7vDtZ69/b2ARnV/WpbrhW1gqp6SV8FKaYgnfA7EDa3vfoBBqsBX8IxJDC5Z5UNnX43BA8+MnX5Afp4B/c1ELQAzjfbfE1OhqUUlpNiRq94VSk0H/wBeiL5eTlfbfb5A65RbdwfDi3wOvO3+Jg5h/KfovNEXZLL5eiJyu9mFJXNs/RaCTeNibhPRgnNWOeqfyAw7j56Mpog9HbWKzwt9XNz9zm4V0YJGR+65MDPKmvDB1an6hpbwQb7a5dhAzgX9ztoQh+buixzvZKSIJZ24GOqXVEpBPjWym8l7nnQhJbv5XgmZJao9DWvqoTqQpMjob/Dg3gq7lthQgcC4kLKYRGpqdofcFcAj5KluG+FCfnfzAhBZ4mm6uztRwAeJ+a47wETQttiKDcnDB9EkxSTXgBgicQsoWlrTywMv5/LxQfRJAmIagDX+ZuTUG4pCfT3B79NSGP1xiWUAdfQT0zXEKxodTixj68M1iKoWxH8PLBoZyCzhBBWJ2+GPC19gY+jEero6gG23jFhn6w7qYv7VpjQ7I0ey//mJCaW1mpWtdAMa8ugmIf1C6x8TbUMHVi4b4UJIXS3+q7Y6X7LA3aMgiuJT0Fkcr7auJ6cLz93J/OFXWCci952v12TjdgzcL9DJoRABeAsMzfThdYBXvBkVhvf2wR5fmnptV/b0FEH94hDC4x1aIGxzr9XBgujsWOPcQAAAABJRU5ErkJggg=="/><text x="48.0215" y="364.2376" fill="#FFFFFF" font-size="16" lengthAdjust="spacing" textLength="129.3906" font-weight="700" font-family="sans-serif">Пользователь</text><text x="110.4917" y="381.0062" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="22.2842" y="397.303" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="88.1836" font-family="sans-serif">Отправляет</text><text x="110.4678" y="397.303" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="114.918" y="397.303" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="66.0488" font-family="sans-serif">команды</text><text x="180.9668" y="397.303" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="185.417" y="397.303" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="17.7324" font-family="sans-serif">на</text><text x="17" y="413.5999" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="81.1904" font-family="sans-serif">включение</text><text x="98.1904" y="413.5999" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="102.6406" y="413.5999" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="9.0986" font-family="sans-serif">и</text><text x="111.7393" y="413.5999" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="116.1895" y="413.5999" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="92.2441" font-family="sans-serif">выключение</text><text x="74.6748" y="429.8968" fill="#FFFFFF" font-size="14" lengthAdjust="spacing" textLength="76.084" font-family="sans-serif">лампочки.</text></g><g class="link" data-entity-1="ent0001" data-entity-2="ent0003" id="lnk6" data-source-line="1803" data-link-type="dependency"><path d="M218.67,357.2969 C288.5,357.2969 371.51,357.2969 439.3,357.2969" style="stroke:#181818;stroke-width:1;" fill="none" id="user-to-mobile_app"/><polygon points="447.3,357.2969,439.3,354.2969,439.3,360.2969,447.3,357.2969" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="249.43" y="353.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="88.0928" font-weight="700" font-family="sans-serif">Отправляет</text><text x="337.5228" y="353.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="4.5259" font-weight="700" font-family="sans-serif"> </text><text x="342.0487" y="353.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="68.3896" font-weight="700" font-family="sans-serif">команды</text></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0004" id="lnk7" data-source-line="1803" data-link-type="dependency"><path d="M640.25,342.4169 C710.63,331.4469 797.4954,317.9086 864.6854,307.4386" style="stroke:#181818;stroke-width:1;" fill="none" id="mobile_app-to-mqtt_broker"/><polygon points="872.59,306.2069,864.2235,304.4744,865.1473,310.4029,872.59,306.2069" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="675.07" y="278.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="80.7104" font-weight="700" font-family="sans-serif">Публикует</text><text x="755.7804" y="278.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="4.5259" font-weight="700" font-family="sans-serif"> </text><text x="760.3063" y="278.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="68.3896" font-weight="700" font-family="sans-serif">команды</text><text x="828.696" y="278.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="4.5259" font-weight="700" font-family="sans-serif"> </text><text x="833.2219" y="278.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="9.1089" font-weight="700" font-family="sans-serif">и</text><text x="689.8759" y="293.4966" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="115.3687" font-weight="700" font-family="sans-serif">подписывается</text><text x="805.2446" y="293.4966" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="4.5259" font-weight="700" font-family="sans-serif"> </text><text x="809.7704" y="293.4966" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="17.7544" font-weight="700" font-family="sans-serif">на</text><text x="720.6684" y="308.6294" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="76.064" font-weight="700" font-family="sans-serif">состояние</text></g><g class="link" data-entity-1="ent0005" data-entity-2="ent0004" id="lnk8" data-source-line="1803" data-link-type="dependency"><path d="M644.36,208.5869 C702.58,221.5469 777.32,239.0769 843.07,257.2969 C852.74,259.9769 855.1815,260.6017 865.1615,263.6617" style="stroke:#181818;stroke-width:1;" fill="none" id="ecu-to-mqtt_broker"/><polygon points="872.81,266.0069,866.0409,260.7935,864.282,266.5299,872.81,266.0069" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="679.5683" y="198.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="71.8555" font-weight="700" font-family="sans-serif">Получает</text><text x="751.4238" y="198.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="4.5259" font-weight="700" font-family="sans-serif"> </text><text x="755.9496" y="198.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="68.3896" font-weight="700" font-family="sans-serif">команды</text><text x="824.3393" y="198.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="4.5259" font-weight="700" font-family="sans-serif"> </text><text x="828.8652" y="198.3638" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="9.1089" font-weight="700" font-family="sans-serif">и</text><text x="679.07" y="213.4966" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="78.8125" font-weight="700" font-family="sans-serif">публикует</text><text x="757.8825" y="213.4966" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="4.5259" font-weight="700" font-family="sans-serif"> </text><text x="762.4084" y="213.4966" fill="#000000" font-size="13" lengthAdjust="spacing" textLength="76.064" font-weight="700" font-family="sans-serif">состояние</text></g><?plantuml-src jLFBZX915Dtp5JMzWcIWDwxS8Sx228eEB5nr6YYdE_G3kwjLOam6Y3468tw0aHX_02RWz003lr3rHvugG660gCdOY-wgSs-TU-wvrKUsLtMY6YKMOutmhgu7vglCcSsig1A5DAZw7gCUorHzLsyufiSYrqc7hERO5Jrt9rsKKBcGrrqpP3G0b6aW8t5qown6JfvupVuZksbxDFXd_e9TjqpRUHYOBoaBTRTUywkX8LdMzCoYBWtr6drkHWxJ7VlCMhMHo6UVFIwNZ7psqVtJNBPuaamb21vcCuSI_bcSYtSy5cq-vXFH5XrnpWU4N_1BFk0nd_4v7o5q9Lf8kK1YZuWMUU2NqdoAZ1bVyBbupoV8ko9OZ75-p2z9uKcfHFWGkpc2G1EgQf46eUybPOF7HEDzHAVY8uhDGJvGAh3NPEmhTWkf1f6fw86ZJLIT6Q1hFX9TWe_IEa729raSGCp7XCT0HNSNtvOSPxJKKjPf4owwnZq_ycfcq4o6QYzLV4FBBQKBPOde_9QqP8KV-ytGKkIDufRFhz4dNRzYEzGm6mt9_WMPGqYJ7bnZ3OcI7m0sFzQwfHt59hDyxrZv-jVsm8Q5ShW3LGEL8bgGA1kQuynXL_O8Vy6OKGdykfgSb97U7A-s0fMsxxlAP9yprH0KAXKI4X_MBY9ue32jHk3SO_A094zovTHUT_etsjxd38Ov16MCUzyvuCrQqTlbDNbAdTNLtHxZdsUnuf44cqUtJUNz7Ka79Zh2MzxBhlnhP2BMlUNliDl4HctbvSsYjsELble9?></g></svg></div><div class="puml dark" style="">400. <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="width:719px;height:417px;background:#FFFFFF;" width="719px" height="417px" viewBox="0 0 719 417" zoomAndPan="magnify" preserveAspectRatio="none" contentStyleType="text/css"><?plantuml 1.2026.7beta3?><defs/><g><rect x="0" y="0" width="718.0527" height="92" fill="#EAE2C9" style="stroke:#EAE2C9;stroke-width:1;"/><text x="10" y="26.4014" fill="#000000" font-size="14" lengthAdjust="spacing" textLength="313.0039" font-weight="700" font-family="sans-serif">Add your own dedication into PlantUML</text><text x="10" y="42.6982" fill="#000000" font-size="14" lengthAdjust="spacing" textLength="4.4502" font-family="sans-serif"> </text><text x="10" y="58.9951" fill="#000000" font-size="14" lengthAdjust="spacing" textLength="157.8418" font-family="sans-serif">For just $5 per month!</text><text x="10" y="75.292" fill="#000000" font-size="14" lengthAdjust="spacing" textLength="70.4238" font-family="sans-serif">Details on</text><a target="" href="https://plantuml.com/dedication" xlink:href="https://plantuml.com/dedication" xlink:type="simple" xlink:actuate="onRequest" xlink:show="new" title="https://plantuml.com/dedication" xlink:title="https://plantuml.com/dedication"><text x="84.874" y="75.292" fill="#000000" font-size="14" lengthAdjust="spacing" textLength="224.7383" font-style="italic" font-family="sans-serif">https://plantuml.com/dedication</text></a><image width="93" height="93" x="333.0039" y="0" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF0AAABdCAYAAADHcWrDAAADlUlEQVR4Xu2QMbLbQAxDff+b5Rop/yWSVsIAIaBde50ZFK/hPoISXj+/f/0pn+WFg/J+WvoBWvoBWvoBWvoBWvoBWvoBWvoBrNJfr9d2VL4zV47jO7sr4A1GS98M3mC09M3gDUZcOr4lODn4E5OvdvGNkfqKNKelB74izWnpga9Ic5ZKx2IYyscbTx0F7jCUj1kM5eMNRksnPmYxlI83GC2d+JjFUD7eYPw3pWMuw/GVo+YK5V/nipY+zBXKv84VLX2YK5R/nSu+rvQUvJfkKx+zGMrHG4yWTnzMYigfbzBaOvExi6F8vMFYKj3FyVEO/vSE2nXmKWlOSyfzlDSnpZN5SpoTl74LlX9qvotrvqKlb+aar2jpm7nmK6zS30360emu43ySln6Aln4Aq/TrR6sfwLfJwRvMcXy1uzJPSXNaOpmnpDktncxT0pyl0tUxNXfAXMaKr8CdBMyaaOlBjgKzJlp6kKPArAmr9NvCyjHywf/KQW/yT+06zs3HwUR6QO06OehN/qldx7n5OJhID6hdJwe9yT+16zg3HwcJzrHUSVE5eIM5K74C9xkt/aGvwH1GS3/oK3CfYZXuhCoHP4qhfDV3nJV5SprT0sk8Jc1p6WSekuZ8tHTceaejwB2G4zuOoqUTHN9xFC2d4PiOo4hLV8fwLXEcH7+JgVnTrnJwPwFvMFo6cXA/AW8wWjpxcD8BbzDi0vEtcRT44SwH35jjgPsMx1cO3mO0dILjKwfvMVo6wfGVg/cYHy0dP3zynV2Vg29PcTLxWyda+oCTid860dIHnEz81gmr9HeDP8HAnQncT3KUj1nMcWjpBOVjFnMcWjpB+ZjFHAerdDyyA7wxoXbV3HHSuSL2ccC4hu4Cb0yoXTV3nHSuiH0cMK6hu8AbE2pXzR0nnStiHweMNFTh5KROCmYxHN9xFC2d4PiOo2jpBMd3HMVS6fhDDOWnc0Xqp1zz1S18m2jpA9d8dQvfJlr6wDVf3cK3ia8ufZeD38TArAncT3JaOvEdcD/JaenEd8D9JOcrSnfA3B05+MacFMxitHQC3kjALEZLJ+CNBMxiLJWeonLUfMVx/HQX3xiYy2jpwS6+MTCX0dKDXXxjYC4jLn0XTn7qKHDn6S6+Jc7NxwEDP3YHTn7qKHDn6S6+Jc7NxwEDP3YHTn7qKHDn6S6+Jc7Nx0F5Py39AC39AC39AC39AC39AC39AC39AC39AH8BOQ9nx4N43O4AAAAASUVORK5CYII="/><rect x="0" y="92" width="718.0527" height="205.5625" fill="#FFFFFF" style="stroke:#FFFFFF;stroke-width:1;"/><text x="5" y="108.1387" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="153.9141" font-weight="700" font-family="sans-serif">Welcome to PlantUML!</text><text x="5" y="122.1074" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="3.8145" font-family="sans-serif"> </text><text x="5" y="136.0762" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="277.1074" font-family="sans-serif">You can start with a simple UML Diagram like:</text><text x="5" y="150.0449" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="3.8145" font-family="sans-serif"> </text><text x="5" y="164.0137" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="122.8184" font-family="monospace">Bob->Alice: Hello</text><text x="5" y="177.9824" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="3.8145" font-family="sans-serif"> </text><text x="5" y="191.9512" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="14.3789" font-family="sans-serif">Or</text><text x="5" y="205.9199" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="3.8145" font-family="sans-serif"> </text><text x="5" y="219.8887" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="93.9199" font-family="monospace">class Example</text><text x="5" y="233.8574" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="3.8145" font-family="sans-serif"> </text><text x="5" y="247.8262" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="341.9531" font-family="sans-serif">You will find more information about PlantUML syntax on</text><text x="350.7676" y="247.8262" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="125.7012" text-decoration="underline" font-family="sans-serif">https://plantuml.com</text><text x="5" y="261.7949" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="3.8145" font-family="sans-serif"> </text><text x="5" y="275.7637" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="106.6113" font-family="sans-serif">(Details by typing</text><text x="115.4258" y="275.7637" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="50.5723" font-family="monospace">license</text><text x="169.8125" y="275.7637" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="55.8223" font-family="sans-serif">keyword)</text><text x="5" y="289.7324" fill="#000000" font-size="12" lengthAdjust="spacing" textLength="3.8145" font-family="sans-serif"> </text><image width="80" height="71" x="505.4688" y="98" xlink:href="data:image/png;base64,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"/><rect x="0" y="297.5625" width="718.0527" height="118.4531" fill="#000000" style="stroke:#000000;stroke-width:1;"/><text x="5" y="314.5625" fill="#33FF02" font-size="12" lengthAdjust="spacing" textLength="475.7695" font-weight="700" font-style="italic" font-family="sans-serif">PlantUML version 1.2026.7beta3 / 308703f [2026-06-17 17:12:22 UTC]</text><rect x="5" y="324.5313" width="173.2813" height="21.2969" fill="#33FF02" style="stroke:#33FF02;stroke-width:1;"/><text x="6" y="339.5313" fill="#000000" font-size="14" lengthAdjust="spacing" textLength="171.2813" font-weight="700" font-family="sans-serif">[From string (line 2) ]</text><text x="5" y="359.8281" fill="#33FF02" font-size="14" lengthAdjust="spacing" textLength="4.874" font-weight="700" font-family="sans-serif"> </text><text x="5" y="376.125" fill="#33FF02" font-size="14" lengthAdjust="spacing" textLength="81.4229" font-weight="700" font-family="sans-serif">@startuml</text><text x="5" y="392.4219" fill="#33FF02" font-size="14" lengthAdjust="spacing" textLength="708.0527" font-weight="700" text-decoration="wavy underline" font-family="sans-serif">!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml</text><text x="9.874" y="408.7188" fill="#FF0000" font-size="14" lengthAdjust="spacing" textLength="135.8848" font-weight="700" font-family="sans-serif">Cannot open URL</text><?plantuml-src KypCIyufJKbLo2WfAIYsqjSlIYpNIyyioIXDAYrEBKhEpoj9pIlHIyxFrI_8ISmhAStDqIqkISd9JD9tDj4D00c5-lhevoOMbwGM0ONq2e0gkBWCzOmCZCpqp9DIInAD0G00?></g></svg></div></div>
+<h2 id="_2">Функциональные требования</h2>
+<ul>
+<li><strong>FR_01 Управление лампочкой</strong>: Мобильное приложение должно иметь возможность отправлять команды на включение и выключение IoT.</li>
+<li><strong>FR_02 Получение состояния</strong>: Мобильное приложение должно получать текущее состояние IoT (включена/выключена).</li>
+<li><strong>FR_03 Обработка ошибок</strong>: В случае, если команда не выполнена, мобильное приложение должно отображать сообщение об ошибке "Команда не выполнена".</li>
+</ul>
+<h2 id="_3">Логика работы</h2>
+<p><strong>Отправка команды</strong>:
+   - Пользователь отправляет команду (ON/OFF) через мобильное приложение.
+   - Мобильное приложение публикует команду в топик <code>command</code>.</p>
+<p><strong>Ожидание ответа</strong>:
+   - После отправки команды запускается таймер.
+   - Если в течение заданного времени не поступает обновление состояния, выводится сообщение об ошибке.</p>
+<p><strong>Получение состояния</strong>:
+   - IoT получает команду из топика <code>command</code> и выполняет соответствующее действие.
+   - После выполнения команды IoT публикует свой текущий статус в топик <code>state</code>.
+   - Мобильное приложение получает обновление состояния из топика <code>state</code> и обновляет интерфейс пользователя.</p>
+<h2 id="sequence-diagram">Sequence Diagram</h2>
+<pre class="mermaid"><code>sequenceDiagram
+    participant User
+    participant MobileApp
+    participant IoT
+    participant CommandTopic as Топик "command"
+    participant StateTopic as Топик "state"
+
+    User-&gt;&gt;MobileApp: Отправить команду (ON/OFF)
+    MobileApp-&gt;&gt;CommandTopic: Публикация команды
+    Note right of MobileApp: Запуск таймера
+
+    alt Команда выполнена
+        CommandTopic--&gt;&gt;IoT: Получение команды
+        IoT-&gt;&gt;StateTopic: Публикация состояния (ON)
+        StateTopic--&gt;&gt;MobileApp: Получение состояния (ON)
+        MobileApp-&gt;&gt;User: Обновление интерфейса (Лампочка: ON)
+        MobileApp-&gt;&gt;MobileApp: Сброс таймера
+    else Команда не выполнена
+        Note right of MobileApp: Таймер истек
+        MobileApp-&gt;&gt;User: Отображение ошибки "Команда не выполнена"
+    end</code></pre>
+<h2 id="python">Пример реализации концепта на Python</h2>
+<h3 id="_4">Мобильное приложение</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">paho.mqtt.client</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mqtt</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Настройки MQTT</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">BROKER_ADDRESS</span> <span class="o">=</span> <span class="s2">"mqtt.example.com"</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">COMMAND_TOPIC</span> <span class="o">=</span> <span class="s2">"command"</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">STATE_TOPIC</span> <span class="o">=</span> <span class="s2">"state"</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">COMMAND_TIMEOUT</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Таймаут в секундах</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1"># Флаг для отслеживания получения состояния</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">state_received</span> <span class="o">=</span> <span class="kc">False</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1"># Функция обратного вызова при подключении</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Connected with result code "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">STATE_TOPIC</span><span class="p">)</span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="c1"># Функция обратного вызова при получении сообщения</span>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">global</span> <span class="n">state_received</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">topic</span> <span class="o">==</span> <span class="n">STATE_TOPIC</span><span class="p">:</span>
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="n">state_received</span> <span class="o">=</span> <span class="kc">True</span>
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Лампочка: </span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="c1"># Обновите интерфейс пользователя</span>
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="c1"># Функция для отправки команды</span>
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_command</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="k">global</span> <span class="n">state_received</span>
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">state_received</span> <span class="o">=</span> <span class="kc">False</span>
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">COMMAND_TOPIC</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="c1"># Запуск таймера</span>
+<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">timer</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">COMMAND_TIMEOUT</span><span class="p">,</span> <span class="n">check_command_status</span><span class="p">)</span>
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="c1"># Функция для проверки статуса команды</span>
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_command_status</span><span class="p">():</span>
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">state_received</span><span class="p">:</span>
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Ошибка: Команда не выполнена"</span><span class="p">)</span>
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="c1"># Отобразите сообщение об ошибке в интерфейсе пользователя</span>
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="c1"># Создание клиента MQTT</span>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="n">client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="n">client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
+<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="n">client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span>
+<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a>
+<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="c1"># Подключение к брокеру</span>
+<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BROKER_ADDRESS</span><span class="p">,</span> <span class="mi">1883</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a>
+<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="c1"># Пример использования</span>
+<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="n">send_command</span><span class="p">(</span><span class="s2">"ON"</span><span class="p">)</span>  <span class="c1"># Включение лампочки</span>
+<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="n">send_command</span><span class="p">(</span><span class="s2">"OFF"</span><span class="p">)</span>  <span class="c1"># Выключение лампочки</span>
+<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="c1"># Запуск цикла обработки сообщений</span>
+<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="n">client</span><span class="o">.</span><span class="n">loop_forever</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="python_1">Пример реализации концепта на Python</h2>
+<h3 id="iot">IoT лампочка</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">paho.mqtt.client</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mqtt</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Настройки MQTT</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">BROKER_ADDRESS</span> <span class="o">=</span> <span class="s2">"mqtt.example.com"</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">COMMAND_TOPIC</span> <span class="o">=</span> <span class="s2">"command"</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">STATE_TOPIC</span> <span class="o">=</span> <span class="s2">"state"</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1"># Функция обратного вызова при подключении</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Connected with result code "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">COMMAND_TOPIC</span><span class="p">)</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="c1"># Функция обратного вызова при получении сообщения</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>    <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">topic</span> <span class="o">==</span> <span class="n">COMMAND_TOPIC</span><span class="p">:</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>        <span class="n">command</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"ON"</span><span class="p">:</span>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>            <span class="n">turn_on</span><span class="p">()</span>
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"OFF"</span><span class="p">:</span>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>            <span class="n">turn_off</span><span class="p">()</span>
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="c1"># Функции для управления лампочкой</span>
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="k">def</span><span class="w"> </span><span class="nf">turn_on</span><span class="p">():</span>
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Лампочка включена"</span><span class="p">)</span>
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>    <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">STATE_TOPIC</span><span class="p">,</span> <span class="s2">"ON"</span><span class="p">)</span>
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="k">def</span><span class="w"> </span><span class="nf">turn_off</span><span class="p">():</span>
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Лампочка выключена"</span><span class="p">)</span>
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>    <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">STATE_TOPIC</span><span class="p">,</span> <span class="s2">"OFF"</span><span class="p">)</span>
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="c1"># Создание клиента MQTT</span>
+<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="n">client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="n">client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
+<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="n">client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span>
+<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>
+<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="c1"># Подключение к брокеру</span>
+<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BROKER_ADDRESS</span><span class="p">,</span> <span class="mi">1883</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a>
+<a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="c1"># Запуск цикла обработки сообщений</span>
+<a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="n">client</span><span class="o">.</span><span class="n">loop_forever</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="mqtt-rest-api-iot-">Преимущества MQTT перед REST API для взаимодействия с IoT-устройствами</h2>
+<p>Взаимодействие с IoT-устройствами через MQTT имеет несколько преимуществ по сравнению с использованием REST API. Вот основные причины, по которым MQTT часто предпочитают для IoT-приложений:</p>
+<p><strong>Эффективность и экономия ресурсов</strong>:
+   - <strong>MQTT</strong> использует легковесный протокол, который минимизирует объем передаваемых данных. Это особенно важно для IoT-устройств, которые часто имеют ограниченные вычислительные ресурсы и работают на низкоскоростных сетях.
+   - <strong>REST API</strong> требует больше ресурсов для обработки HTTP-запросов и ответов, что может быть неэффективно для устройств с ограниченными возможностями.</p>
+<p><strong>Масштабируемость</strong>:
+   - <strong>MQTT</strong> поддерживает модель "издатель-подписчик" (publish-subscribe), что позволяет легко масштабировать систему, добавляя новые устройства и клиенты без необходимости изменения архитектуры.
+   - <strong>REST API</strong> требует точечного взаимодействия между клиентом и сервером, что может усложнить масштабирование системы.</p>
+<p><strong>Надежность и качество обслуживания (QoS)</strong>:
+   - <strong>MQTT</strong> поддерживает различные уровни качества обслуживания (QoS), что позволяет гарантировать доставку сообщений даже при ненадежных сетевых соединениях.
+   - <strong>REST API</strong> не имеет встроенных механизмов для обеспечения надежной доставки сообщений, что может быть критично для IoT-приложений.</p>
+<p><strong>Реальное время</strong>:
+   - <strong>MQTT</strong> обеспечивает передачу сообщений в реальном времени, что важно для приложений, требующих мгновенной реакции на изменения состояния устройств.
+   - <strong>REST API</strong> обычно используется для запросов и ответов, что может вносить задержки и не подходит для приложений реального времени.</p>
+<p><strong>Энергоэффективность</strong>:
+   - <strong>MQTT</strong> позволяет устройствам оставаться в режиме низкого энергопотребления, так как они могут подписываться на топики и получать сообщения только при необходимости.
+   - <strong>REST API</strong> требует постоянного опроса сервера для получения обновлений, что увеличивает энергопотребление.</p>
+<p><strong>Гибкость и простота интеграции</strong>:
+   - <strong>MQTT</strong> легко интегрируется с различными устройствами и платформами благодаря своей простоте и поддержке различных форматов сообщений.
+   - <strong>REST API</strong> может требовать дополнительных усилий для интеграции с различными устройствами и системами.</p>
+<p>Таким образом, MQTT является более подходящим протоколом для взаимодействия с IoT-устройствами благодаря своей эффективности, масштабируемости, надежности и поддержке реального времени.</p>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../assets/mkdocs_puml/puml.js"></script>
+<script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script src="../assets/mkdocs_puml/interaction.js"></script>
+</body>
+</html>
